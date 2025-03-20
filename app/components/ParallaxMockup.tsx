@@ -20,20 +20,20 @@ const ParallaxMockup = () => {
   // Mockup image data
   const mockups = [
     {
-      image: '/mockups/Command_pallete.png',
-      svg: '/mockups/Command_pallete.svg',
+      image: './mockups/Command_pallete.png',
+      svg: './mockups/Command_pallete.svg',
       title: 'Command Palette',
       description: 'Access your prompts instantly'
     },
     {
-      image: '/mockups/prompt_manager.png',
-      svg: '/mockups/prompt_manager.svg',
+      image: './mockups/prompt_manager.png',
+      svg: './mockups/prompt_manager.svg',
       title: 'Prompt Manager',
       description: 'Organize all your prompts'
     },
     {
-      image: '/mockups/popup.png',
-      svg: '/mockups/popup.svg',
+      image: './mockups/popup.png',
+      svg: './mockups/popup.svg',
       title: 'Quick Access',
       description: 'Use prompts anywhere'
     }
