@@ -10,3 +10,14 @@
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Mockup components
+/app/components/EnhancedProductShowcase.tsx
+/app/components/PromptManager.tsx
+/app/components/CommandPalette.tsx
+/app/components/TextareaWithCommands.tsx
+
+# Feature pages
+/app/popup/
+/app/command/
+/app/prompts/

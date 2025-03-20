@@ -10,6 +10,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+  overflow-x: hidden; /* Prevent horizontal scrolling from GSAP animations */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -35,4 +36,151 @@ h1, h2, h3, h4, h5, h6 {
 
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600;
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .transform-3d {
+    transform: perspective(1000px) rotateX(0) rotateY(0);
+    transition: transform 0.5s ease;
+  }
+  
+  .hover-tilt {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-tilt:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(10px);
+  }
+  
+  .card-shadow {
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 5px 15px -10px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .card-shadow:hover {
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.2), 0 10px 20px -10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Scroll animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(-100px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInFromRight {
+  from { opacity: 0; transform: translateX(100px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animated-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Mockup showcase styles */
+.mockup-showcase {
+  position: relative;
+  overflow: hidden;
+}
+
+.mockup-section {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.mockup-text {
+  will-change: transform, opacity;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.mockup-text .text-content {
+  transition: all 0.5s ease;
+  max-width: 100%;
+  padding: 2rem;
+}
+
+.mockup-text h3 {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.mockup-image {
+  will-change: opacity;
+  transition: opacity 0.7s ease;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Apple-style easing for all animations */
+* {
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mockup-text h3 {
+    font-size: 3rem;
+  }
+  
+  .mockup-text p {
+    font-size: 1.25rem;
+  }
+}
+
+/* Proper spacing for mockup containers */
+.mockups-container > div:not(:last-child) {
+  margin-bottom: 20vh;
+}
+
+/* Apple-style reflection gradient */
+.mockup-reflection {
+  position: relative;
+}
+
+.mockup-reflection::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+}
+
+/* Apple-style text animations */
+.text-item {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 } 
