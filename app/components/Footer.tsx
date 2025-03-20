@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Logo from './Logo';
 
 const Footer: React.FC = () => {
   return (
@@ -8,9 +9,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center text-white font-bold text-sm">
-                QP
-              </div>
+            <Logo size={32} />
               <span className="font-bold text-xl">QuickPrompt</span>
             </div>
             <p className="text-gray-600 mb-4 max-w-md">
